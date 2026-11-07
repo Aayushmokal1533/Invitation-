@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#5a1026">
+<title>Arya & Shrvan — Wedding Invitation</title>
+<style>
+:root{--wine:#5a1026;--deep:#260b18;--gold:#d8b56d;--cream:#fff8eb;--rose:#e9b9b4}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 10%,#8b334d 0,#3b1025 42%,#170812 100%);color:var(--cream);font-family:Georgia,'Times New Roman',serif;display:grid;place-items:center;padding:22px;overflow-x:hidden}
+.sparkles{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.sparkles i{position:absolute;width:4px;height:4px;border-radius:50%;background:#ffe7a8;box-shadow:0 0 12px 3px #e6bd72;animation:twinkle 3s infinite ease-in-out}
+@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1.5)}}
+.wrap{width:min(100%,470px);perspective:1200px;position:relative;z-index:1}
+.card{position:relative;background:linear-gradient(145deg,#fff9ec,#f5e6ca);color:var(--wine);border:1px solid var(--gold);border-radius:8px;padding:13px;box-shadow:0 25px 80px #0009;overflow:hidden}
+.frame{border:1px solid #c9a45e;outline:1px solid #e4cc98;outline-offset:4px;padding:30px 22px 25px;text-align:center;min-height:570px;position:relative}
+.corner{position:absolute;color:#c49b51;font-size:30px;line-height:1}
+.c1{top:8px;left:10px}.c2{top:8px;right:10px;transform:scaleX(-1)}.c3{bottom:8px;left:10px;transform:scaleY(-1)}.c4{bottom:8px;right:10px;transform:scale(-1)}
+.eyebrow{font:600 10px/1.5 Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#9a7140;margin:12px 0 16px}
+h1{font-size:clamp(43px,12vw,58px);line-height:1.05;font-weight:400;margin:12px 0 4px;color:#671d36}
+.amp{font-style:italic;color:#bd9655;font-size:32px;margin:0}
+.invite{font-size:17px;line-height:1.65;margin:24px auto 17px;max-width:310px}
+.rule{height:1px;width:68%;background:linear-gradient(90deg,transparent,#c49b51,transparent);margin:20px auto}
+.date{font-size:24px;letter-spacing:1px;margin:5px 0}
+.time{font:600 12px Arial,sans-serif;letter-spacing:3px;color:#986e3d;margin-top:8px}
+.venue{font-size:18px;margin:9px 0 5px}
+.address{font:12px/1.7 Arial,sans-serif;color:#74543d}
+.seal{width:62px;height:62px;border:1px solid #c49b51;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;color:#a87d3e;font-size:26px}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+button,.linkbtn{border:1px solid #9e753e;background:#641d37;color:#fff6e4;padding:12px 17px;border-radius:30px;font:600 11px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:.25s}
+button:hover,.linkbtn:hover{background:#8b3450;transform:translateY(-2px);box-shadow:0 7px 18px #6a203544}
+.secondary{background:transparent;color:#641d37}
+.hidden{display:none}
+.details{animation:rise .7s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+#cover{position:absolute;inset:0;background:linear-gradient(150deg,#6c1e39,#3d1025);z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#f8e8c8;border:1px solid var(--gold);transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .8s;padding:25px}
+#cover:before{content:"";position:absolute;inset:12px;border:1px solid #d8b56d;pointer-events:none}
+#cover.open{transform:rotateY(-105deg);opacity:0;pointer-events:none}
+#cover .monogram{font-size:52px;color:#e5c27c;margin:15px}
+#cover p{font:11px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase}
+#cover h2{font-size:35px;font-weight:400;margin:6px}
+.openbtn{margin-top:24px;background:#e4c27f;color:#431126;border:0}
+.note{font:11px Arial,sans-serif;color:#f1d8bc;text-align:center;margin:16px auto 0;opacity:.8}
+.footer{font:italic 13px Georgia,serif;color:#a57942;margin-top:20px}
+@media(max-width:380px){.frame{padding:26px 15px;min-height:550px}.invite{font-size:15px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sparkles" id="sparkles"></div>
+<main class="wrap">
+  <section class="card">
+    <div id="cover">
+      <p>With the blessings of our families</p>
+      <div class="monogram">A <span style="font-style:italic">&</span> S</div>
+      <h2>A beautiful beginning</h2>
+      <p>You're invited to celebrate</p>
+      <button class="openbtn" onclick="openInvite()">Open Invitation ✦</button>
+    </div>
+    <div class="frame">
+      <span class="corner c1">❧</span><span class="corner c2">❧</span><span class="corner c3">❧</span><span class="corner c4">❧</span>
+      <div class="details">
+        <div class="seal">♥</div>
+        <div class="eyebrow">Together with our families</div>
+        <div class="eyebrow" style="letter-spacing:3px;margin-top:0">Joyfully invite you to the wedding of</div>
+        <h1>ARYA</h1>
+        <div class="amp">&</div>
+        <h1>SHRVAN</h1>
+        <p class="invite">Two hearts, one promise, and a lifetime of togetherness.<br>Join us as we begin our forever.</p>
+        <div class="rule"></div>
+        <div class="eyebrow">Save the date</div>
+        <div class="date">14 December 2031</div>
+        <div class="time">SUNDAY · 12:00 PM</div>
+        <div class="rule"></div>
+        <div class="eyebrow">Wedding venue</div>
+        <div class="venue">Maharaja Banquet Hall</div>
+        <div class="address">Ground Floor, near McDonald's,<br>opposite Madhuvan Hotel, Katrap,<br>Badlapur East, Maharashtra – 421503</div>
+        <div class="actions">
+          <a class="linkbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Maharaja+Banquet+Hall+Katrap+Badlapur+421503">Get Directions ↗</a>
+          <button class="secondary" onclick="saveDate()">Add to Calendar</button>
+          <button class="secondary" onclick="shareInvite()">Share Invitation</button>
+        </div>
+        <div class="footer">Your presence will make our day even more special.</div>
+      </div>
+    </div>
+  </section>
+  <p class="note">Tap “Open Invitation” to reveal the celebration details.</p>
+</main>
+<script>
+function openInvite(){document.getElementById('cover').classList.add('open');}
+function saveDate(){
+ const start='20311214T120000',end='20311214T160000';
+ const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Arya and Shrvan//Wedding Invitation//EN','BEGIN:VEVENT','UID:arya-shrvan-wedding-20311214@example.com','DTSTAMP:20261107T000000Z','DTSTART;TZID=Asia/Kolkata:'+start,'DTEND;TZID=Asia/Kolkata:'+end,'SUMMARY:Wedding of Arya & Shrvan','LOCATION:Maharaja Banquet Hall, Katrap, Badlapur, Maharashtra 421503','DESCRIPTION:Join us to celebrate the wedding of Arya and Shrvan.','END:VEVENT','END:VCALENDAR'].join('\\r\\n');
+ const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Arya-Shrvan-Wedding.ics';a.click();URL.revokeObjectURL(url);
+}
+async function shareInvite(){
+ const data={title:'Arya & Shrvan Wedding',text:'You are invited to the wedding of Arya & Shrvan! 14 December 2031 at 12:00 PM. Maharaja Banquet Hall, Katrap, Badlapur – 421503.'};
+ if(navigator.share){try{await navigator.share(data)}catch(e){}}
+ else if(navigator.clipboard){await navigator.clipboard.writeText(data.text);alert('Invitation details copied!')}
+ else{alert(data.text)}
+}
+const s=document.getElementById('sparkles');for(let i=0;i<42;i++){const e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.top=Math.random()*100+'%';e.style.animationDelay=(Math.random()*3)+'s';e.style.animationDuration=(2+Math.random()*3)+'s';s.appendChild(e)}
+</script>
+</body>
+</html>
